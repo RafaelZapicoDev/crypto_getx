@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class HttpService {
+  //service
   final Dio _dio = Dio();
   HttpService() {
     _configureDio();

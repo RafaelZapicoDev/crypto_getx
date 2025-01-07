@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  AssetsController assetsController = Get.find();
+  final AssetsController assetsController =
+      Get.find(); //acha o controller das moedas
   Home({super.key});
 
   @override
@@ -40,8 +41,12 @@ class Home extends StatelessWidget {
   Widget _buildUI(BuildContext context) {
     return SafeArea(
         child: Obx(
+      //observa as coi
       () => Column(
-        children: [_portfolioValue(context), _trackedAssetsList(context)],
+        children: [
+          _portfolioValue(context), // valor total
+          _trackedAssetsList(context), //moedas adicionadas na carteira
+        ],
       ),
     ));
   }

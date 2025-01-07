@@ -1,9 +1,10 @@
 import 'package:crypto_getx/controllers/assets_controller.dart';
 import 'package:crypto_getx/models/api_response.dart';
 import 'package:crypto_getx/services/http_service.dart';
-import 'package:crypto_getx/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+//WIDGET DE DIALOGO PARA ADICIONAR MOEDA AO PORTFOLIO
 
 class AddAssetDialogController extends GetxController {
   RxBool loading = false.obs;
