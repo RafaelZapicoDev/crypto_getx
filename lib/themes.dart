@@ -17,7 +17,7 @@ final ThemeData lightTheme = ThemeData(
 
 final ThemeData darkTheme = ThemeData(
   primaryColor: Colors.green,
-  scaffoldBackgroundColor: Colors.grey,
+  scaffoldBackgroundColor: const Color.fromARGB(255, 70, 72, 87),
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: Colors.green,
   ),
