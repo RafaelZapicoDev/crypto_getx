@@ -12,7 +12,7 @@ class HttpService {
   void _configureDio() {
     _dio.options = BaseOptions(
       baseUrl: "https://api.cryptorank.io/v1/",
-      queryParameters: {"api_key": "//ADD YOUR KEY HERE"},
+      queryParameters: {"api_key": CRYPTO_RANK_API_KEY},
     );
   }
 

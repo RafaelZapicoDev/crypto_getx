@@ -1,4 +1,5 @@
 import 'package:crypto_getx/controllers/assets_controller.dart';
+import 'package:crypto_getx/controllers/theme_controller.dart';
 import 'package:crypto_getx/models/tracked_asset.dart';
 import 'package:crypto_getx/utils.dart';
 import 'package:crypto_getx/widgets/add_asset_dialog.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 class Home extends StatelessWidget {
   final AssetsController assetsController =
       Get.find(); //acha o controller das moedas
+  final ThemeController themecontroller = Get.find();
   Home({super.key});
 
   @override
@@ -21,10 +23,8 @@ class Home extends StatelessWidget {
 
   PreferredSizeWidget _appbar(BuildContext context) {
     return AppBar(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      foregroundColor: Colors.white,
       title: const Text(
-        "Simple PortFolio",
+        "Simple Portfolio",
         style: TextStyle(letterSpacing: 1),
       ),
       actions: [
@@ -33,6 +33,14 @@ class Home extends StatelessWidget {
             Get.dialog(AddAssetDialog());
           },
           icon: const Icon(Icons.add),
+        ),
+        Obx(
+          () => IconButton(
+            onPressed: () {
+              themecontroller.toggleTheme();
+            },
+            icon: Icon(themecontroller.themeIcon.value),
+          ),
         ),
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:crypto_getx/controllers/assets_controller.dart';
+import 'package:crypto_getx/controllers/theme_controller.dart';
 import 'package:crypto_getx/services/http_service.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,8 @@ Future<void> registerServices() async {
 Future<void> registerControllers() async {
   Get.put<AssetsController>(
       AssetsController()); //registra o assetscontroller no getx
+  Get.put<ThemeController>(
+      ThemeController()); //registra o assetscontroller no getx
 }
 
 String getCryptoImageUrl(String name) {

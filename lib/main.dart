@@ -1,33 +1,31 @@
+import 'package:crypto_getx/controllers/theme_controller.dart';
 import 'package:crypto_getx/pages/home.dart';
 import 'package:crypto_getx/utils.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 void main() async {
   await registerServices(); //registrando os componentes getx
   await registerControllers();
-  runApp(const MyApp());
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final themeController = Get.find<ThemeController>();
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        useMaterial3: true,
-        textTheme: GoogleFonts.lilitaOneTextTheme(),
-      ),
-      routes: {
-        "/home": (context) => Home(),
-      },
-      initialRoute: "/home",
-    );
+    return Obx(() => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: themeController.currentTheme.value,
+          routes: {
+            "/home": (context) => Home(),
+          },
+          initialRoute: "/home",
+        ));
   }
 }
